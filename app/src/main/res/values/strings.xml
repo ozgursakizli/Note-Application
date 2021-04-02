@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Note Application</string>
+    <string name="nothing_to_see_here">Nothing to see here</string>
+    <string name="delete_note_confirm">Are you sure want to delete note?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_new_note">Create new note</string>
+    <string name="empty_note_title">Empty Note</string>
+    <string name="empty_description">Type something</string>
+    <string name="enter_image_url">Enter image url</string>
+    <string name="add_image">Add Image</string>
+    <string name="valid_image_url">Starting to download image…</string>
+    <string name="invalid_image_url">You entered an invalid image url</string>
+    <string name="note_saved_successful">Note saved successfully</string>
+    <string name="note_deleted_successful">Note deleted successfully</string>
+</resources>

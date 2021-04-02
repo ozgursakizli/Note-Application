@@ -1,0 +1,111 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.4.32"
+    ext.hilt_version = '2.33-beta'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.3"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+
+ext {
+    // Version Control
+    appVersionCode = 1
+    appVersionName = "1.0.0"
+    // Build Control
+    compileSdkVersion = 30
+    minSdkVersion = 21
+    targetSdkVersion = 30
+    buildToolsVersion = "30.0.3"
+    // Android
+    corektxVersion = '1.3.2'
+    appcompatVersion = '1.2.0'
+    activityVersion = '1.2.2'
+    constraintlayoutVersion = '2.0.4'
+    workerVersion = '2.5.0'
+    // Google
+    googleMaterialVersion = '1.3.0'
+    gsonVersion = '2.8.6'
+    // Material Dialogs
+    materialDialogsCoreVersion = '3.3.0'
+    materialDialogsLifecycleVersion = '3.3.0'
+    materialDialogsInputVersion = '3.3.0'
+    materialDialogsDateTimeVersion = '3.2.1'
+    // Lifecycle
+    lifecycleExtensionsVersion = '2.2.0'
+    lifecycleViewmodelKtxVersion = '2.3.0'
+    lifecycleLivedataKtxVersion = '2.3.0'
+    lifecycleCommonJava8Version = '2.3.0'
+    lifecycleRuntimeKtxVersion = '2.3.0'
+    lifecycleCompilerVersion = '1.1.1'
+    // Glide
+    glideVersion = '4.12.0'
+    glideCompilerVersion = '4.12.0'
+    // Room
+    roomVersion = '2.2.6'
+    roomCompilerVersion = '2.2.6'
+    roomTestingVersion = '2.2.6'
+    // Leak Canary
+    leakCanaryVersion = '2.7'
+    // Test Libraries
+    jUnitVersion = '4.13.2'
+    jUnitExtVersion = '1.1.2'
+    espressoCoreVersion = '3.3.0'
+
+    appDependencies = [
+            // Hilt
+            hilt                    : "com.google.dagger:hilt-android:${hilt_version}",
+            hiltCompiler            : "com.google.dagger:hilt-android-compiler:${hilt_version}",
+            // Android
+            corektx                 : "androidx.core:core-ktx:${corektxVersion}",
+            appcompat               : "androidx.appcompat:appcompat:${appcompatVersion}",
+            activity                : "androidx.activity:activity-ktx:${activityVersion}",
+            constraintlayout        : "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
+            worker                  : "androidx.work:work-runtime-ktx:${workerVersion}",
+            // Google
+            googleMaterial          : "com.google.android.material:material:${googleMaterialVersion}",
+            gson                    : "com.google.code.gson:gson:${gsonVersion}",
+            // Material Dialogs
+            materialDialogsCore     : "com.afollestad.material-dialogs:core:${materialDialogsCoreVersion}",
+            materialDialogsLifecycle: "com.afollestad.material-dialogs:lifecycle:${materialDialogsLifecycleVersion}",
+            materialDialogsInput    : "com.afollestad.material-dialogs:input:${materialDialogsInputVersion}",
+            materialDialogsDateTime : "com.afollestad.material-dialogs:datetime:${materialDialogsDateTimeVersion}",
+            // Lifecycle
+            lifecycleExtensions     : "androidx.lifecycle:lifecycle-extensions:${lifecycleExtensionsVersion}",
+            lifecycleViewmodelKtx   : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleViewmodelKtxVersion}",
+            lifecycleLivedataKtx    : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleLivedataKtxVersion}",
+            lifecycleCommonJava8    : "androidx.lifecycle:lifecycle-common-java8:${lifecycleCommonJava8Version}",
+            lifecycleRuntimeKtx     : "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleRuntimeKtxVersion}",
+            lifecycleCompiler       : "android.arch.lifecycle:compiler:${lifecycleCompilerVersion}",
+            // Glide
+            glide                   : "com.github.bumptech.glide:glide:${glideVersion}",
+            glideCompiler           : "com.github.bumptech.glide:compiler:${glideCompilerVersion}",
+            // Room
+            room                    : "androidx.room:room-ktx:${roomVersion}",
+            roomCompiler            : "androidx.room:room-compiler:${roomCompilerVersion}",
+            // Leak Canary
+            leakCanary              : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            // Test Libraries
+            jUnit                   : "junit:junit:${jUnitVersion}",
+            jUnitExt                : "androidx.test.ext:junit:${jUnitExtVersion}",
+            espressoCore            : "androidx.test.espresso:espresso-core:${espressoCoreVersion}",
+            roomTesting             : "androidx.room:room-testing:${roomTestingVersion}"
+    ]
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
