@@ -13,7 +13,7 @@ import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.ozgursakizli.noteapplication.R
 import com.ozgursakizli.noteapplication.constants.AppKeyConstants
 import com.ozgursakizli.noteapplication.databinding.ActivityNoteBinding
-import com.ozgursakizli.noteapplication.extensions.displayCircularImage
+import com.ozgursakizli.noteapplication.utils.extensions.displayCircularImage
 import com.ozgursakizli.noteapplication.utils.EventObserver
 import com.ozgursakizli.noteapplication.utils.EventType
 import com.ozgursakizli.noteapplication.utils.NoteEvents

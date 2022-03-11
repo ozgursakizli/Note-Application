@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ozgursakizli.noteapplication.R
 import com.ozgursakizli.noteapplication.databinding.AdapterItemNotesBinding
-import com.ozgursakizli.noteapplication.extensions.displayCircularImage
+import com.ozgursakizli.noteapplication.utils.extensions.displayCircularImage
 import module.notes.NoteEntity
 import java.text.SimpleDateFormat
 import java.util.*

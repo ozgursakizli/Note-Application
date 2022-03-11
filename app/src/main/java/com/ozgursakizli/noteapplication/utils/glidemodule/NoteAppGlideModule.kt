@@ -1,4 +1,4 @@
-package com.ozgursakizli.noteapplication.glidemodule
+package com.ozgursakizli.noteapplication.utils.glidemodule
 
 import android.content.Context
 import android.util.Log

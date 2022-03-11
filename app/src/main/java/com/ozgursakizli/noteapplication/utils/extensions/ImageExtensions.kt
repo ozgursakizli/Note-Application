@@ -1,7 +1,7 @@
-package com.ozgursakizli.noteapplication.extensions
+package com.ozgursakizli.noteapplication.utils.extensions
 
 import android.widget.ImageView
-import com.ozgursakizli.noteapplication.glidemodule.GlideApp
+import com.ozgursakizli.noteapplication.utils.glidemodule.GlideApp
 
 fun ImageView.displayImage(resId: Int?, placeHolder: Int) {
     GlideApp.with(this).load(resId).error(placeHolder).placeholder(placeHolder).into(this)

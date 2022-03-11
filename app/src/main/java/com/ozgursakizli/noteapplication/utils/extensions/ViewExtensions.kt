@@ -1,4 +1,4 @@
-package com.ozgursakizli.noteapplication.extensions
+package com.ozgursakizli.noteapplication.utils.extensions
 
 import android.view.View
 

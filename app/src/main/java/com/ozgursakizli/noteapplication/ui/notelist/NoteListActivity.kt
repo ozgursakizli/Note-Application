@@ -13,7 +13,7 @@ import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.ozgursakizli.noteapplication.R
 import com.ozgursakizli.noteapplication.constants.AppKeyConstants
 import com.ozgursakizli.noteapplication.databinding.ActivityNoteListBinding
-import com.ozgursakizli.noteapplication.extensions.setVisibility
+import com.ozgursakizli.noteapplication.utils.extensions.setVisibility
 import com.ozgursakizli.noteapplication.ui.note.NoteActivity
 import com.ozgursakizli.noteapplication.utils.EventObserver
 import com.ozgursakizli.noteapplication.utils.EventType
@@ -24,7 +24,9 @@ import module.notes.NoteEntity
 import timber.log.Timber
 
 @AndroidEntryPoint
-class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, NotesAdapter.ItemLongClickListener {
+class NoteListActivity : AppCompatActivity(),
+        NotesAdapter.ItemClickListener,
+        NotesAdapter.ItemLongClickListener {
 
     private lateinit var binding: ActivityNoteListBinding
     private val notesAdapter by lazy { NotesAdapter(this, this) }
@@ -35,6 +37,7 @@ class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, No
         super.onCreate(savedInstanceState)
         binding = ActivityNoteListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        notesViewModel.getAllNotes()
         initUi()
         observeViewModel()
     }
@@ -60,7 +63,6 @@ class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, No
                 }
             }
             event.observe(this@NoteListActivity, EventObserver(::eventHandler))
-            getAllNotes()
         }
     }
 

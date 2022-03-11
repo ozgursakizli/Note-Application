@@ -31,8 +31,6 @@ class EventObserver<T>(private val onEventUnhandledContent: (T) -> Unit) : Obser
 }
 
 sealed class EventType {
-    object ShowProgress : EventType()
-    object HideProgress : EventType()
     class ShowToast(val source: Int) : EventType()
     class ShowError(val source: Int) : EventType()
 }
