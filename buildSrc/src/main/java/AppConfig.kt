@@ -13,5 +13,12 @@ object AppConfig {
     const val releaseBuild = "release"
     const val debugBuild = "debug"
 
+    // Release Signing Configs (Test purpose only)
+    const val releaseKeyStoreFile = "NoteApp.keystore"
+    const val releaseConfigName = "release"
+    const val releaseAlias = "noteAppKeyAlias"
+    const val releasePass = "!Note@123"
+
+    // Modules
     const val DATABASE_MODULE = ":database"
 }

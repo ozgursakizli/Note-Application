@@ -33,6 +33,15 @@ android {
         viewBinding = true
     }
 
+    signingConfigs {
+        create(AppConfig.releaseConfigName) {
+            storeFile = file(AppConfig.releaseKeyStoreFile)
+            storePassword = AppConfig.releasePass
+            keyAlias = AppConfig.releaseAlias
+            keyPassword = AppConfig.releasePass
+        }
+    }
+
     buildTypes {
         named(AppConfig.debugBuild) {
             isMinifyEnabled = false
@@ -43,6 +52,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs[AppConfig.releaseConfigName]
         }
     }
     lint {
