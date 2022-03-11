@@ -16,11 +16,7 @@ import com.ozgursakizli.noteapplication.database.notes.NoteEntity
 import com.ozgursakizli.noteapplication.databinding.ActivityNoteListBinding
 import com.ozgursakizli.noteapplication.extensions.setVisibility
 import com.ozgursakizli.noteapplication.ui.note.NoteActivity
-import com.ozgursakizli.noteapplication.utils.EventObserver
-import com.ozgursakizli.noteapplication.utils.EventType
-import com.ozgursakizli.noteapplication.utils.LogUtil
-import com.ozgursakizli.noteapplication.utils.NoteEvents
-import com.ozgursakizli.noteapplication.utils.ToastUtil
+import com.ozgursakizli.noteapplication.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 private val TAG = NoteListActivity::class.java.simpleName
@@ -98,7 +94,7 @@ class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, No
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_note_list, menu)
         return true

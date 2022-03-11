@@ -56,16 +56,20 @@ class NotesAdapter(
             itemBinding.imgNote.displayCircularImage(noteEntity.imageUrl, R.drawable.ic_empty_photo)
             itemBinding.tvTitle.text = noteEntity.title
             itemBinding.tvDescription.text = noteEntity.description
-            val dateText: String = SimpleDateFormat(if (DateUtils.isToday(noteEntity.createdDate)) "HH:mm" else "dd.MM.yyyy, HH:mm", Locale.getDefault()).run { format(noteEntity.createdDate) }
+            val dateText: String = SimpleDateFormat(if (DateUtils.isToday(noteEntity.createdDate)) {
+                "HH:mm"
+            } else {
+                "dd.MM.yyyy, HH:mm"
+            }, Locale.getDefault()).run { format(noteEntity.createdDate) }
             itemBinding.tvDate.text = String.format("%s", dateText)
         }
 
         override fun onClick(v: View?) {
-            getItem(adapterPosition)?.let { onItemClickListener.onItemClick(it) }
+            getItem(absoluteAdapterPosition)?.let { onItemClickListener.onItemClick(it) }
         }
 
         override fun onLongClick(v: View?): Boolean {
-            getItem(adapterPosition)?.let { onItemLongClickListener.onItemLongClick(it) }
+            getItem(absoluteAdapterPosition)?.let { onItemLongClickListener.onItemLongClick(it) }
             return true
         }
 

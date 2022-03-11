@@ -1,0 +1,36 @@
+object DependencyContainer {
+    const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
+    const val appCompat = "androidx.appcompat:appcompat:${Versions.appcompatVersion}"
+    const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragmentVersion}"
+    const val activity = "androidx.activity:activity-ktx:${Versions.activityVersion}"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayoutVersion}"
+    const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
+    const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensionsVersion}"
+    const val lifecycleViewmodelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleViewModelKtxVersion}"
+    const val lifecycleLivedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLivedataKtxVersion}"
+    const val lifecycleCommonJava8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycleCommonJava8Version}"
+    const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntimeKtxVersion}"
+    const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleCompilerVersion}"
+    const val googleMaterial = "com.google.android.material:material:${Versions.googleMaterialVersion}"
+    const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCoreVersion}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesAndroidVersion}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideCompilerVersion}"
+    const val materialDialogsCore = "com.afollestad.material-dialogs:core:${Versions.materialDialogsCoreVersion}"
+    const val materialDialogsLifecycle = "com.afollestad.material-dialogs:lifecycle:${Versions.materialDialogsLifecycleVersion}"
+    const val materialDialogsInput = "com.afollestad.material-dialogs:input:${Versions.materialDialogsInputVersion}"
+    const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroidVersion}"
+    const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hiltCompiler}"
+    const val worker = "androidx.work:work-runtime-ktx:${Versions.workerVersion}"
+    const val room = "androidx.room:room-ktx:${Versions.roomVersion}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.roomCompilerVersion}"
+
+    // Debug
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanaryVersion}"
+
+    // Tests
+    const val jUnit = "junit:junit:${Versions.jUnitVersion}"
+    const val jUnitExt = "androidx.test.ext:junit:${Versions.jUnitExtVersion}"
+    const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCoreVersion}"
+}
