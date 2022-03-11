@@ -16,10 +16,12 @@ import com.ozgursakizli.noteapplication.database.notes.NoteEntity
 import com.ozgursakizli.noteapplication.databinding.ActivityNoteListBinding
 import com.ozgursakizli.noteapplication.extensions.setVisibility
 import com.ozgursakizli.noteapplication.ui.note.NoteActivity
-import com.ozgursakizli.noteapplication.utils.*
+import com.ozgursakizli.noteapplication.utils.EventObserver
+import com.ozgursakizli.noteapplication.utils.EventType
+import com.ozgursakizli.noteapplication.utils.NoteEvents
+import com.ozgursakizli.noteapplication.utils.ToastUtil
 import dagger.hilt.android.AndroidEntryPoint
-
-private val TAG = NoteListActivity::class.java.simpleName
+import timber.log.Timber
 
 @AndroidEntryPoint
 class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, NotesAdapter.ItemLongClickListener {
@@ -29,7 +31,7 @@ class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, No
     private val notesViewModel: NoteListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        LogUtil.debug(TAG, "onCreate")
+        Timber.d("onCreate")
         super.onCreate(savedInstanceState)
         binding = ActivityNoteListBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,7 +40,7 @@ class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, No
     }
 
     private fun initUi() {
-        LogUtil.debug(TAG, "initUi")
+        Timber.d("initUi")
         binding.rvNotes.apply {
             addItemDecoration(DividerItemDecoration(this@NoteListActivity, DividerItemDecoration.VERTICAL))
             adapter = notesAdapter
@@ -48,15 +50,15 @@ class NoteListActivity : AppCompatActivity(), NotesAdapter.ItemClickListener, No
     }
 
     private fun observeViewModel() {
-        LogUtil.debug(TAG, "observeViewModel")
+        Timber.d("observeViewModel")
         with(notesViewModel) {
-            data.observe(this@NoteListActivity, {
+            data.observe(this@NoteListActivity) {
                 notesAdapter.setItems(it)
                 binding.apply {
                     rvNotes.setVisibility(notesAdapter.isEmpty().not())
                     emptyView.setVisibility(notesAdapter.isEmpty())
                 }
-            })
+            }
             event.observe(this@NoteListActivity, EventObserver(::eventHandler))
             getAllNotes()
         }

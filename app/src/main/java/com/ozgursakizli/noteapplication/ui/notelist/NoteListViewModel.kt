@@ -8,14 +8,11 @@ import com.ozgursakizli.noteapplication.database.notes.NoteEntity
 import com.ozgursakizli.noteapplication.database.notes.NotesRepository
 import com.ozgursakizli.noteapplication.utils.Event
 import com.ozgursakizli.noteapplication.utils.EventType
-import com.ozgursakizli.noteapplication.utils.LogUtil
 import com.ozgursakizli.noteapplication.utils.NoteEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-
-private val TAG = NoteListViewModel::class.java.simpleName
+import timber.log.Timber
+import javax.inject.Inject
 
 @HiltViewModel
 class NoteListViewModel @Inject constructor(
@@ -28,7 +25,7 @@ class NoteListViewModel @Inject constructor(
     val event: LiveData<Event<EventType>> = _event
 
     fun getAllNotes() {
-        LogUtil.debug(TAG, "getAllNotes")
+        Timber.d("getAllNotes")
         viewModelScope.launch {
             notesRepository.getAllNotes().collect {
                 _data.postValue(it)
@@ -37,7 +34,7 @@ class NoteListViewModel @Inject constructor(
     }
 
     fun deleteNote(noteEntity: NoteEntity) {
-        LogUtil.debug(TAG, "deleteNote")
+        Timber.d("deleteNote")
         viewModelScope.launch {
             notesRepository.delete(noteEntity)
             _event.postValue(Event(NoteEvents.NoteDeleted))

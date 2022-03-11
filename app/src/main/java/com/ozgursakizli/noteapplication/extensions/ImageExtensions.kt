@@ -3,7 +3,6 @@ package com.ozgursakizli.noteapplication.extensions
 import android.widget.ImageView
 import com.ozgursakizli.noteapplication.glidemodule.GlideApp
 
-// region Extension functions for Glide
 fun ImageView.displayImage(resId: Int?, placeHolder: Int) {
     GlideApp.with(this).load(resId).error(placeHolder).placeholder(placeHolder).into(this)
 }
@@ -20,4 +19,3 @@ fun ImageView.displayCircularImage(imagePath: String?, placeHolder: Int) {
         .placeholder(placeHolder)
         .into(this)
 }
-// endregion

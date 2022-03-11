@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.ozgursakizli.noteapplication.database.DatabaseConstants
 import com.ozgursakizli.noteapplication.database.NoteAppDatabase
 import com.ozgursakizli.noteapplication.database.notes.NotesDao
+import com.ozgursakizli.noteapplication.database.notes.NotesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,6 +30,12 @@ object DatabaseModule {
     @Provides
     fun provideNotesDao(database: NoteAppDatabase): NotesDao {
         return database.notesDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideNotesRepository(notesDao: NotesDao): NotesRepository {
+        return NotesRepository(notesDao)
     }
 
 }

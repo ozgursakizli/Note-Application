@@ -30,6 +30,8 @@ object Versions {
     const val roomCompilerVersion = "2.4.2"
 
     // Worker
+    const val hiltWorkerVersion = "1.0.0"
+    const val hiltWorkerCompilerVersion = "1.0.0"
     const val workerVersion = "2.7.1"
 
     // Google
@@ -48,6 +50,9 @@ object Versions {
     const val materialDialogsCoreVersion = "3.3.0"
     const val materialDialogsLifecycleVersion = "3.3.0"
     const val materialDialogsInputVersion = "3.3.0"
+
+    // Timber
+    const val timberVersion = "5.0.1"
 
     // Leak Canary
     const val leakcanaryVersion = "2.5"

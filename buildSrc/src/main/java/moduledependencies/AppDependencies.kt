@@ -19,8 +19,10 @@ val appLibraries = arrayListOf<String>().apply {
     add(DependencyContainer.materialDialogsLifecycle)
     add(DependencyContainer.materialDialogsInput)
     add(DependencyContainer.hiltAndroid)
+    add(DependencyContainer.hiltWorker)
     add(DependencyContainer.worker)
     add(DependencyContainer.room)
+    add(DependencyContainer.timber)
 }
 
 val appKaptLibraries = arrayListOf<String>().apply {
@@ -29,5 +31,6 @@ val appKaptLibraries = arrayListOf<String>().apply {
     add(DependencyContainer.lifecycleCompiler)
     add(DependencyContainer.glideCompiler)
     add(DependencyContainer.hiltCompiler)
+    add(DependencyContainer.hiltWorkerCompiler)
     add(DependencyContainer.roomCompiler)
 }

@@ -22,9 +22,12 @@ object DependencyContainer {
     const val materialDialogsInput = "com.afollestad.material-dialogs:input:${Versions.materialDialogsInputVersion}"
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hiltAndroidVersion}"
     const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hiltCompiler}"
+    const val hiltWorker = "androidx.hilt:hilt-work:${Versions.hiltWorkerVersion}"
+    const val hiltWorkerCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltWorkerCompilerVersion}"
     const val worker = "androidx.work:work-runtime-ktx:${Versions.workerVersion}"
     const val room = "androidx.room:room-ktx:${Versions.roomVersion}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomCompilerVersion}"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
 
     // Debug
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanaryVersion}"

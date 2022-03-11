@@ -1,16 +1,12 @@
 package com.ozgursakizli.noteapplication.ui.note
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import android.webkit.URLUtil
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.work.Constraints
-import androidx.work.Data
-import androidx.work.ExistingWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
+import androidx.work.*
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
@@ -21,13 +17,11 @@ import com.ozgursakizli.noteapplication.databinding.ActivityNoteBinding
 import com.ozgursakizli.noteapplication.extensions.displayCircularImage
 import com.ozgursakizli.noteapplication.utils.EventObserver
 import com.ozgursakizli.noteapplication.utils.EventType
-import com.ozgursakizli.noteapplication.utils.LogUtil
 import com.ozgursakizli.noteapplication.utils.NoteEvents
 import com.ozgursakizli.noteapplication.utils.ToastUtil
 import com.ozgursakizli.noteapplication.workers.ImageDownloadWorker
 import dagger.hilt.android.AndroidEntryPoint
-
-private val TAG = NoteActivity::class.java.simpleName
+import timber.log.Timber
 
 @AndroidEntryPoint
 class NoteActivity : AppCompatActivity() {
@@ -36,10 +30,10 @@ class NoteActivity : AppCompatActivity() {
     private val noteViewModel: NoteViewModel by viewModels()
     private lateinit var currentNote: NoteEntity
     private var initialData: NoteEntity? = null
-    private var noteId: Long = -1
+    private var noteId: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        LogUtil.debug(TAG, "onCreate")
+        Timber.d("onCreate")
         super.onCreate(savedInstanceState)
         binding = ActivityNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -49,14 +43,14 @@ class NoteActivity : AppCompatActivity() {
     }
 
     private fun loadIntent() {
-        LogUtil.debug(TAG, "loadIntent")
+        Timber.d("loadIntent")
         if (intent != null && intent.extras != null) {
-            noteId = intent.extras!!.getLong(AppKeyConstants.KEY_NOTE_ID)
+            noteId = intent.extras!!.getInt(AppKeyConstants.KEY_NOTE_ID)
         }
     }
 
     private fun initUi() {
-        LogUtil.debug(TAG, "initUi")
+        Timber.d("initUi")
         supportActionBar?.let {
             it.setDisplayShowTitleEnabled(false)
             it.setDisplayHomeAsUpEnabled(true)
@@ -68,6 +62,7 @@ class NoteActivity : AppCompatActivity() {
         binding.imgAddNote.setOnClickListener { showAddImageDialog() }
     }
 
+    @SuppressLint("CheckResult")
     private fun showAddImageDialog() {
         var inputUrl = ""
         MaterialDialog(this@NoteActivity).show {
@@ -111,9 +106,9 @@ class NoteActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        LogUtil.debug(TAG, "observeViewModel")
+        Timber.d("observeViewModel")
         with(noteViewModel) {
-            data.observe(this@NoteActivity, {
+            data.observe(this@NoteActivity) {
                 if (it != null) {
                     currentNote = it
                     noteId = currentNote.id
@@ -128,11 +123,11 @@ class NoteActivity : AppCompatActivity() {
                         edtDescription.setText(currentNote.description)
                     }
                 }
-            })
+            }
             event.observe(this@NoteActivity, EventObserver(::eventHandler))
         }
 
-        if (noteId == -1L) {
+        if (noteId == -1) {
             createNewNote()
         } else {
             noteViewModel.getNoteById(noteId)

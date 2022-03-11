@@ -1,15 +1,17 @@
 package com.ozgursakizli.noteapplication.database.notes
 
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class NotesRepository @Inject constructor(private val notesDao: NotesDao) : NotesDataSource {
+class NotesRepository @Inject constructor(
+    private val notesDao: NotesDao
+) : NotesDataSource {
 
     override fun getAllNotes(): Flow<List<NoteEntity>> {
         return notesDao.getAllNotes()
     }
 
-    override fun getNoteById(noteId: Long): Flow<NoteEntity> {
+    override fun getNoteById(noteId: Int): Flow<NoteEntity> {
         return notesDao.getNoteById(noteId)
     }
 
