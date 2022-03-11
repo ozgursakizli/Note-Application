@@ -1,9 +1,9 @@
-package com.ozgursakizli.noteapplication.database.notes
+package module.notes
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.ozgursakizli.noteapplication.database.DatabaseConstants
+import module.DatabaseConstants
 
 @Entity(tableName = DatabaseConstants.NOTES_TABLE)
 data class NoteEntity(

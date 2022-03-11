@@ -6,8 +6,8 @@ import extensions.testImplementation
 
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
     id("dagger.hilt.android.plugin")
     id("com.github.ben-manes.versions") version Versions.benManesVersion
 }
@@ -62,6 +62,7 @@ android {
 }
 
 dependencies {
+    implementation(project(AppConfig.DATABASE_MODULE))
     implementation(moduledependencies.appLibraries)
     kapt(moduledependencies.appKaptLibraries)
     testImplementation(moduledependencies.testLibraries)

@@ -12,7 +12,6 @@ import com.afollestad.materialdialogs.input.input
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.ozgursakizli.noteapplication.R
 import com.ozgursakizli.noteapplication.constants.AppKeyConstants
-import com.ozgursakizli.noteapplication.database.notes.NoteEntity
 import com.ozgursakizli.noteapplication.databinding.ActivityNoteBinding
 import com.ozgursakizli.noteapplication.extensions.displayCircularImage
 import com.ozgursakizli.noteapplication.utils.EventObserver
@@ -21,6 +20,7 @@ import com.ozgursakizli.noteapplication.utils.NoteEvents
 import com.ozgursakizli.noteapplication.utils.ToastUtil
 import com.ozgursakizli.noteapplication.workers.ImageDownloadWorker
 import dagger.hilt.android.AndroidEntryPoint
+import module.notes.NoteEntity
 import timber.log.Timber
 
 @AndroidEntryPoint

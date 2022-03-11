@@ -1,16 +1,16 @@
-package com.ozgursakizli.noteapplication.di
+package module.di
 
 import android.content.Context
 import androidx.room.Room
-import com.ozgursakizli.noteapplication.database.DatabaseConstants
-import com.ozgursakizli.noteapplication.database.NoteAppDatabase
-import com.ozgursakizli.noteapplication.database.notes.NotesDao
-import com.ozgursakizli.noteapplication.database.notes.NotesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import module.DatabaseConstants
+import module.NoteAppDatabase
+import module.notes.NotesDao
+import module.notes.NotesRepository
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)

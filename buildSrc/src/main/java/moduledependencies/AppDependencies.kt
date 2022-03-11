@@ -12,8 +12,6 @@ val appLibraries = arrayListOf<String>().apply {
     add(DependencyContainer.lifecycleLivedataKtx)
     add(DependencyContainer.googleMaterial)
     add(DependencyContainer.gson)
-    add(DependencyContainer.coroutinesCore)
-    add(DependencyContainer.coroutinesAndroid)
     add(DependencyContainer.glide)
     add(DependencyContainer.materialDialogsCore)
     add(DependencyContainer.materialDialogsLifecycle)
@@ -21,7 +19,6 @@ val appLibraries = arrayListOf<String>().apply {
     add(DependencyContainer.hiltAndroid)
     add(DependencyContainer.hiltWorker)
     add(DependencyContainer.worker)
-    add(DependencyContainer.room)
     add(DependencyContainer.timber)
 }
 
@@ -32,5 +29,4 @@ val appKaptLibraries = arrayListOf<String>().apply {
     add(DependencyContainer.glideCompiler)
     add(DependencyContainer.hiltCompiler)
     add(DependencyContainer.hiltWorkerCompiler)
-    add(DependencyContainer.roomCompiler)
 }

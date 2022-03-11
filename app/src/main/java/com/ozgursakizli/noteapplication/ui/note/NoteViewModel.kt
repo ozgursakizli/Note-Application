@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ozgursakizli.noteapplication.database.notes.NoteEntity
-import com.ozgursakizli.noteapplication.database.notes.NotesRepository
 import com.ozgursakizli.noteapplication.utils.Event
 import com.ozgursakizli.noteapplication.utils.EventType
 import com.ozgursakizli.noteapplication.utils.NoteEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import module.notes.NoteEntity
+import module.notes.NotesRepository
 import timber.log.Timber
 import javax.inject.Inject
 

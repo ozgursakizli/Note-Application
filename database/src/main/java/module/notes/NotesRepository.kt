@@ -1,4 +1,4 @@
-package com.ozgursakizli.noteapplication.database.notes
+package module.notes
 
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

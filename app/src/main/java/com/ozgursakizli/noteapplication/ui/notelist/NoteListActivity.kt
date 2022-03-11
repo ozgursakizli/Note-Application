@@ -12,7 +12,6 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.ozgursakizli.noteapplication.R
 import com.ozgursakizli.noteapplication.constants.AppKeyConstants
-import com.ozgursakizli.noteapplication.database.notes.NoteEntity
 import com.ozgursakizli.noteapplication.databinding.ActivityNoteListBinding
 import com.ozgursakizli.noteapplication.extensions.setVisibility
 import com.ozgursakizli.noteapplication.ui.note.NoteActivity
@@ -21,6 +20,7 @@ import com.ozgursakizli.noteapplication.utils.EventType
 import com.ozgursakizli.noteapplication.utils.NoteEvents
 import com.ozgursakizli.noteapplication.utils.ToastUtil
 import dagger.hilt.android.AndroidEntryPoint
+import module.notes.NoteEntity
 import timber.log.Timber
 
 @AndroidEntryPoint

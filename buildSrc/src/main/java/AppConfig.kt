@@ -12,4 +12,6 @@ object AppConfig {
     //BuildTypes
     const val releaseBuild = "release"
     const val debugBuild = "debug"
+
+    const val DATABASE_MODULE = ":database"
 }

@@ -1,8 +1,8 @@
-package com.ozgursakizli.noteapplication.database.notes
+package module.notes
 
 import androidx.room.*
-import com.ozgursakizli.noteapplication.database.DatabaseConstants
 import kotlinx.coroutines.flow.Flow
+import module.DatabaseConstants
 
 @Dao
 interface NotesDao : NotesDataSource {
